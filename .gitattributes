@@ -1,0 +1,16 @@
+# Normalize line endings
+* text=auto
+
+# Scripts (LF)
+*.sh text eol=lf
+
+# Windows batch (CRLF)
+*.bat text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jar binary
+
+# LFS for videos
+*.mp4 filter=lfs diff=lfs merge=lfs -text
