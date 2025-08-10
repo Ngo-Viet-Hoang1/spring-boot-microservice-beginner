@@ -2,7 +2,7 @@ spring:
   application:
     name: quizzapp
   datasource:
-    url: jdbc:postgresql://localhost:5432/telusko-springboot-quizzapp-question-service
+    url: jdbc:postgresql://localhost:5432/telusko-springboot-quizzapp
     username: postgres
     password: 123456
     driver-class-name: org.postgresql.Driver

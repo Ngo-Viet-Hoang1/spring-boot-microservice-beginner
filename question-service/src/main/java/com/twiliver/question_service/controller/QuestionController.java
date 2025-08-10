@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.twiliver.question_service.model.Answer;
 import com.twiliver.question_service.model.Question;
 import com.twiliver.question_service.service.QuestionService;
 
@@ -42,6 +44,21 @@ public class QuestionController {
     @DeleteMapping("/delete/{id}")
     public void deleteQuestion(@PathVariable Integer id) {
         questionService.deleteQuestion(id);
+    }
+
+    @GetMapping("generate")
+    public ResponseEntity<List<Integer>> getQuestions(@RequestParam String categoryName, @RequestParam Integer numQ) {
+        return questionService.getQuestionsForQuizz(categoryName, numQ);
+    }
+
+    @PostMapping("getQuestions")
+    public ResponseEntity<List<Question>> getQuestionsFromIds(@RequestBody List<Integer> questionIds) {
+        return questionService.getQuestionsFromIds(questionIds);
+    }
+
+    @PostMapping("getScore")
+    public ResponseEntity<Integer> getScore(@RequestBody List<Answer> answers) {
+        return questionService.getScore(answers);
     }
 
 }
