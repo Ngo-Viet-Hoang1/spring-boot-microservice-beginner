@@ -1,6 +1,6 @@
 spring:
   application:
-    name: quizzapp
+    name: question-service
   datasource:
     url: jdbc:postgresql://localhost:5432/telusko-springboot-quizzapp
     username: postgres
